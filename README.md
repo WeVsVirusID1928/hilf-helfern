@@ -28,6 +28,11 @@ This assumes you have run the build commands already.
 * Run from the .exe with `SaveSaviours/bin/Debug/netcoreapp3.1/SaveSaviours.exe`
 * TODO: How to run self-contained executable file on Unix (It's probably `./SaveSaviours/bin/Debug/netcoreapp3.1/SaveSaviours` but I can't test it)
 
+## How to test
+Run `dotnet test` from the `SaveSaviours.Test` folder.
+
+This will build the project and the tests and run them.
+
 
 ## Recommended Editor Setups
 
