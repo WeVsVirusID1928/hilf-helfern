@@ -6,6 +6,13 @@
 * NodeJS + npm
 * Make sure node and npm are explicitly defined in your PATH
 
+## Setup
+* Start postgres database
+* Set dotnet user-secrets that will be used in `AppSettings.cs`.
+  * `dotnet user-secrets set "AppSettings:Secret" "SuperSecretDatabasePassword"`
+  * `dotnet user-secrets set "AppSettings:Database" "DatabaseConnectionString"`
+
+
 ## How to build
 Build configurations are defined in `save-saviours.sln`, build steps are defined in `SaveSaviors/SaveSaviours.csproj`.
 
