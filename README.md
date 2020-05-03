@@ -22,7 +22,7 @@ Running the following commands will build both backend and frontend. The backend
 * Build into self-contained executable with `dotnet publish --configuration Debug` or `dotnet publish --configuration Release`
 
 ## How to run
-This assumes you have run the build commands already.
+This assumes you have completed the setup and run the build commands already.
 
 * Run from the .dll with `dotnet SaveSaviours/bin/Debug/netcoreapp3.1/SaveSaviours.dll` or just `dotnet run` from the SaveSaviours folder
 * Run from the .exe with `SaveSaviours/bin/Debug/netcoreapp3.1/SaveSaviours.exe`
