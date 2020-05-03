@@ -17,6 +17,6 @@ Running the following commands will build both backend and frontend. The backend
 ## How to run
 This assumes you have run the build commands already.
 
-* Run from the .dll with `dotnet SaveSaviours/bin/Debug/netcoreapp3.1/SaveSaviours.dll`
+* Run from the .dll with `dotnet SaveSaviours/bin/Debug/netcoreapp3.1/SaveSaviours.dll` or just `dotnet run` from the SaveSaviours folder
 * Run from the .exe with `SaveSaviours/bin/Debug/netcoreapp3.1/SaveSaviours.exe`
 * TODO: How to run self-contained executable file on Unix (It's probably `./SaveSaviours/bin/Debug/netcoreapp3.1/SaveSaviours` but I can't test it)
