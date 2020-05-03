@@ -4,8 +4,8 @@ namespace SaveSaviours.Entities {
 
     public class Zip {
         public int Code { get; private set; }
-        public float Latitude { get; private set; }
-        public float Longitude { get; private set; }
+        public float Latitude { get; set; }
+        public float Longitude { get; set; }
 
         public ICollection<Institution> Institutions { get; set; } = new List<Institution>();
         public ICollection<Volunteer> Volunteers { get; set; } = new List<Volunteer>();
