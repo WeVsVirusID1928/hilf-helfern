@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import { Link } from '@material-ui/core'
-import logo from 'assets/images/logo.png'
+import logo from 'assets/images/logo.svg'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: 100,
     opacity: 1,
     marginTop: 5,
+    marginBottom: 20,
     [`@media (max-width: ${theme.breakpoints.values.sm}px)`]: {
       maxHeight: 65,
     },
