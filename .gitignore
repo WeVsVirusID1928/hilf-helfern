@@ -3,7 +3,7 @@ SaveSaviours/ClientApp/package-lock.json
 *~
 *.user
 *.icloud
-.DS_Store
+**/.DS_Store
 
 bin/
 obj/
