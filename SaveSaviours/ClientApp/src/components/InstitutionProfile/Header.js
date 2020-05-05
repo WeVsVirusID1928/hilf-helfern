@@ -1,7 +1,5 @@
 import React from 'react'
-import {
-  Paper, Typography,
-} from '@material-ui/core'
+import { Paper, Typography } from '@material-ui/core'
 import * as messages from 'messages/de.json'
 import styles from 'styles/styles'
 

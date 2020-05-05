@@ -34,29 +34,28 @@ const Signin = ({ messageRegistrationButton }) => {
         .then((response) => {
           if (response.ok) {
             return response.text()
-          } if (!response.ok) {
-            response.json()
-              .then(({ msg }) => {
-                setNetworkError(true)
-                if (msg === 'auth.error.user-or-pass-mismatch') {
-                  setNetworkErrorMessage(messages['signinpage.signinErrorMessage'])
-                }
-              })
-          } throw new Error('something went wrong durring signin from backend')
+          }
+          if (!response.ok) {
+            response.json().then(({ msg }) => {
+              setNetworkError(true)
+              if (msg === 'auth.error.user-or-pass-mismatch') {
+                setNetworkErrorMessage(messages['signinpage.signinErrorMessage'])
+              }
+            })
+          }
+          throw new Error('something went wrong durring signin from backend')
         })
         .then((payload) => {
           window.localStorage.setItem('access-token', payload)
-          Get('/user/info')
-            .then((info) => {
-              if (info.roles.administrator) window.location = '/vetting'
-              if (info.roles.volunteer) window.location = '/helperprofile'
-              if (info.roles.institution) window.location = '/helperslist'
-            })
+          Get('/user/info').then((info) => {
+            if (info.roles.administrator) window.location = '/vetting'
+            if (info.roles.volunteer) window.location = '/helperprofile'
+            if (info.roles.institution) window.location = '/helperslist'
+          })
         })
         .catch((e) => console.log(e))
     }
   }
-
 
   return (
     <form onSubmit={(event) => handleRegistration(event)}>
@@ -80,8 +79,7 @@ const Signin = ({ messageRegistrationButton }) => {
         required
         type="password"
       />
-      {networkError
-      && <Typography className={classes.signinErrorTypography}>{networkErrorMessage}</Typography>}
+      {networkError && <Typography className={classes.signinErrorTypography}>{networkErrorMessage}</Typography>}
       <Button
         variant="outlined"
         type="submit"

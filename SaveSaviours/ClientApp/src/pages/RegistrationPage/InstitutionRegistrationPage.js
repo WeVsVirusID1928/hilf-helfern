@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
 import { Grid, Divider } from '@material-ui/core'
 import styles from 'styles/styles'
-import {
-  isValidEmail, isValidPhoneNumber, isValidZip, isValidPassword,
-} from 'services'
+import { isValidEmail, isValidPhoneNumber, isValidZip, isValidPassword } from 'services'
 import RegistrationCallToAction from 'components/Registration/RegistrationCallToAction'
 import RegistrationOptIn from 'components/Registration/RegistrationOptIn'
 import RegistrationButton from 'components/Registration/RegistrationButton'
 import InstitutionRegistrationTextField from 'components/Registration/InstitutionRegistrationTextField'
 import * as messages from 'messages/de.json'
 import Post from 'api/post'
-
 
 const InstitutionRegistrationPage = () => {
   const classes = styles()
@@ -32,7 +29,9 @@ const InstitutionRegistrationPage = () => {
   })
   const isValidForm = () => {
     setError({
-      ...error, phone: false, zip: false,
+      ...error,
+      phone: false,
+      zip: false,
     })
     if (!isValidEmail(email)) {
       setError({ ...error, email: true })
@@ -68,20 +67,20 @@ const InstitutionRegistrationPage = () => {
         .then((response) => {
           if (response.ok) {
             return response.text()
-          } throw new Error('something went wrong durring registration from backend')
+          }
+          throw new Error('something went wrong durring registration from backend')
         })
         .then((response) => {
           window.localStorage.setItem('access-token', response)
           window.location = '/institutionconfirmation'
-        }).catch((e) => console.log(e))
+        })
+        .catch((e) => console.log(e))
     }
   }
   return (
     <Grid container>
       <Grid item className={classes.registrationGrid}>
-        <RegistrationCallToAction
-          messageAction={messages['registrationpage.institution.callToAction']}
-        />
+        <RegistrationCallToAction messageAction={messages['registrationpage.institution.callToAction']} />
         <form onSubmit={(event) => handleRegistration(event)}>
           <InstitutionRegistrationTextField
             contactName={contactName}
@@ -102,9 +101,7 @@ const InstitutionRegistrationPage = () => {
           <RegistrationOptIn datasecurity={datasecurity} setDatasecurity={setDatasecurity} />
           <RegistrationButton
             handleRegistration={handleRegistration}
-            messageRegistrationButton={
-              messages['registrationpage.institution.registrationButton']
-            }
+            messageRegistrationButton={messages['registrationpage.institution.registrationButton']}
           />
         </form>
       </Grid>

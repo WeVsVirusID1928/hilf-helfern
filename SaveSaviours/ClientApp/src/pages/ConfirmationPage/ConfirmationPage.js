@@ -10,7 +10,6 @@ const ConfirmationPage = () => (
       <Confirmation
         headertextTitle={messages['confirmationpage.headertextTitle']}
         headertextBody={messages['confirmationpage.headertextBody']}
-
       />
       <FriendsInvite />
     </Grid>

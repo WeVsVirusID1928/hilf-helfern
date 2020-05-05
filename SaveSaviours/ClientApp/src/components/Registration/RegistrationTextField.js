@@ -21,7 +21,7 @@ const RegistrationTextField = ({
 }) => {
   const classes = styles()
   const [transparentPassword, setTransparentPassword] = useState('password')
-  const handleClick = () => {
+  const handleClick = () => {
     transparentPassword === 'password' ? setTransparentPassword('text') : setTransparentPassword('password')
   }
   return (
@@ -81,10 +81,16 @@ const RegistrationTextField = ({
         InputProps={{
           startAdornment: (
             <InputAdornment position="end">
-              {transparentPassword === 'password'
-                && <VisibilityOffIcon onClick={() => handleClick()} className={classes.registrationAccountCircle} />}
-              {transparentPassword === 'text'
-                && <VisibilityIcon VisibilityIcon onClick={() => handleClick()} className={classes.registrationAccountCircle} />}
+              {transparentPassword === 'password' && (
+                <VisibilityOffIcon onClick={() => handleClick()} className={classes.registrationAccountCircle} />
+              )}
+              {transparentPassword === 'text' && (
+                <VisibilityIcon
+                  VisibilityIcon
+                  onClick={() => handleClick()}
+                  className={classes.registrationAccountCircle}
+                />
+              )}
             </InputAdornment>
           ),
         }}

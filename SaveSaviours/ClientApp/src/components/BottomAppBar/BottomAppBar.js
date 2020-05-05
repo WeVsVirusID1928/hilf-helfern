@@ -23,12 +23,7 @@ export default function BottomAppBar() {
   const [color] = useState('transparent')
   const [scrollStyle] = useState(`${classes.appBar}`)
   return (
-    <AppBar
-      position="static"
-      color={color}
-      elevation={0}
-      className={scrollStyle}
-    >
+    <AppBar position="static" color={color} elevation={0} className={scrollStyle}>
       <Toolbar>
         <Grid container justify="center">
           {messages['bottomappbar.links'].map((link) => (

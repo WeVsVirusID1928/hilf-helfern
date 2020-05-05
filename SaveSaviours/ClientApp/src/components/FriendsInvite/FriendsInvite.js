@@ -8,13 +8,8 @@ const FriendsInvite = () => {
   const classes = styles()
   return (
     <Paper square elevation={2} className={classes.registrationPaper}>
-      <Typography
-        variant="h6"
-        component="h2"
-        className={classes.registrationHeader}
-      >
-        {messages['confirmationpage.actionButton']}
-        {' '}
+      <Typography variant="h6" component="h2" className={classes.registrationHeader}>
+        {messages['confirmationpage.actionButton']}{' '}
       </Typography>
       <Grid container spacing={2}>
         <Grid item>
@@ -26,16 +21,9 @@ const FriendsInvite = () => {
           >
             <div className={classes.confirmationFacebook}>
               <span>
-                <img
-                  src="https://static.xx.fbcdn.net/rsrc.php/v3/yr/r/zSKZHMh8mXU.png"
-                  alt=""
-                  width="12"
-                  height="12"
-                />
+                <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yr/r/zSKZHMh8mXU.png" alt="" width="12" height="12" />
               </span>
-              <span className={classes.confirmationReferralLabel}>
-                {messages['confirmationpage.friendsFacebook']}
-              </span>
+              <span className={classes.confirmationReferralLabel}>{messages['confirmationpage.friendsFacebook']}</span>
             </div>
           </a>
         </Grid>
@@ -50,16 +38,12 @@ const FriendsInvite = () => {
               <span className={classes.confirmationReferralImage}>
                 <img src={twitterLogo} alt="" width="12" height="12" />
               </span>
-              <span className={classes.confirmationReferralLabel}>
-                {messages['confirmationpage.friendsTwitter']}
-              </span>
+              <span className={classes.confirmationReferralLabel}>{messages['confirmationpage.friendsTwitter']}</span>
             </div>
           </a>
         </Grid>
       </Grid>
-      <Typography className={classes.registrationHeader}>
-        {messages['confirmationpage.friendstextBody']}
-      </Typography>
+      <Typography className={classes.registrationHeader}>{messages['confirmationpage.friendstextBody']}</Typography>
     </Paper>
   )
 }

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Get from 'api/get'
-import {
-  Grid, Box,
-} from '@material-ui/core'
+import { Grid, Box } from '@material-ui/core'
 import * as messages from 'messages/de.json'
 import styles from 'styles/styles'
 import Header from 'components/HelperProfile/Header'
@@ -13,7 +11,6 @@ import Post from 'api/post'
 import { isValidPhoneNumber, isValidZip } from 'services'
 
 import UpdateButton from 'components/Registration/RegistrationButton'
-
 
 const HelperProfilePage = () => {
   const classes = styles()
@@ -58,7 +55,6 @@ const HelperProfilePage = () => {
     } else window.location = '/signin'
   }, [])
 
-
   const [error, setError] = useState({
     name: false,
     phone: false,
@@ -67,7 +63,9 @@ const HelperProfilePage = () => {
   })
   const isValidForm = () => {
     setError({
-      ...error, phone: false, zip: false,
+      ...error,
+      phone: false,
+      zip: false,
     })
     if (!isValidPhoneNumber(phone)) {
       setError({ ...phone, phone: true })
@@ -97,7 +95,8 @@ const HelperProfilePage = () => {
         .then((response) => {
           if (response.ok) {
             window.location = '/helperprofile'
-          } throw new Error('something went wrong durring registration from backend')
+          }
+          throw new Error('something went wrong durring registration from backend')
         })
         .catch((e) => new Error(e))
     }
@@ -108,45 +107,42 @@ const HelperProfilePage = () => {
   return (
     <Grid container justify="center" className={classes.helperListContainer}>
       {auth && (
-      <Grid item xs={12}>
-        <Header />
-        <Box className={classes.helperProfileFormBox}>
-          <form onSubmit={(event) => handleUpdate(event)}>
-            <UpdateProfile
-              name={name}
-              setName={setName}
-              phone={phone}
-              setPhone={setPhone}
-              zip={zip}
-              setZip={setZip}
-              error={error}
-              isActive={isActive}
-              setIsActive={setIsActive}
-            />
-            <UpdateExperience
-              setChecked={setChecked}
-              checked={checked}
-              tags={tags}
-              messageSubtitle={messages['helperProfile.subtitle']}
-            />
-            <Box align="center">
-              <UpdateButton
-                handleRegistration={handleUpdate}
-                messageRegistrationButton={messages['helperProfile.updateButton']}
+        <Grid item xs={12}>
+          <Header />
+          <Box className={classes.helperProfileFormBox}>
+            <form onSubmit={(event) => handleUpdate(event)}>
+              <UpdateProfile
+                name={name}
+                setName={setName}
+                phone={phone}
+                setPhone={setPhone}
+                zip={zip}
+                setZip={setZip}
+                error={error}
+                isActive={isActive}
+                setIsActive={setIsActive}
               />
-            </Box>
+              <UpdateExperience
+                setChecked={setChecked}
+                checked={checked}
+                tags={tags}
+                messageSubtitle={messages['helperProfile.subtitle']}
+              />
+              <Box align="center">
+                <UpdateButton
+                  handleRegistration={handleUpdate}
+                  messageRegistrationButton={messages['helperProfile.updateButton']}
+                />
+              </Box>
+            </form>
+          </Box>
 
-          </form>
-        </Box>
-
-        <Box alignContent="left">
-          <DeleteUser />
-        </Box>
-
-      </Grid>
+          <Box alignContent="left">
+            <DeleteUser />
+          </Box>
+        </Grid>
       )}
     </Grid>
-
   )
 }
 

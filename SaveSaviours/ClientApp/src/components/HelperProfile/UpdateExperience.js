@@ -1,28 +1,17 @@
 import React from 'react'
-import {
-  FormGroup,
-  Typography,
-  Grid,
-} from '@material-ui/core'
+import { FormGroup, Typography, Grid } from '@material-ui/core'
 import styles from 'styles/styles'
 import TextField from '@material-ui/core/TextField'
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete'
 
 const filter = createFilterOptions()
 
-const UpdateExperience = ({
-  setChecked, checked, tags, messageSubtitle,
-}) => {
+const UpdateExperience = ({ setChecked, checked, tags, messageSubtitle }) => {
   const classes = styles()
 
   return (
     <FormGroup>
-      <Typography
-        variant="subtitle2"
-        component="h2"
-        align="center"
-        className={classes.registrationTaskText}
-      >
+      <Typography variant="subtitle2" component="h2" align="center" className={classes.registrationTaskText}>
         {messageSubtitle}
       </Typography>
       <Grid container />
@@ -49,9 +38,7 @@ const UpdateExperience = ({
         filterOptions={(options, params) => {
           const filtered = filter(options, params)
           if (params.inputValue !== '') {
-            filtered.push(
-              params.inputValue,
-            )
+            filtered.push(params.inputValue)
           }
           return filtered
         }}
@@ -67,24 +54,22 @@ const UpdateExperience = ({
         }}
         renderOption={(option, { selected, inputValue }) => (
           <>
-            {!inputValue
-            && (
-            <>
-              {/* <Checkbox
+            {!inputValue && (
+              <>
+                {/* <Checkbox
                 icon={icon}
                 checkedIcon={checkedIcon}
                 style={{ marginRight: 8 }}
                 checked={selected}
               /> */}
-              {option}
-            </>
+                {option}
+              </>
             )}
-            {inputValue
-            && (
-            <>
-              <span className={classes.registrationExperienceAddText}>Hinzufügen:</span>
-                { option }
-            </>
+            {inputValue && (
+              <>
+                <span className={classes.registrationExperienceAddText}>Hinzufügen:</span>
+                {option}
+              </>
             )}
           </>
         )}
@@ -99,7 +84,6 @@ const UpdateExperience = ({
         )}
       />
     </FormGroup>
-
   )
 }
 

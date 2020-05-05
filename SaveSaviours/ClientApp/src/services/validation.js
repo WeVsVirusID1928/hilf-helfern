@@ -29,7 +29,7 @@ export const isValidPassword = (password) => {
       if (letters.indexOf(letter) === -1) {
         letters.push(letter)
       }
-      return letters;
+      return letters
     })
     return password.length > 5 && letters.length > 2
   }
@@ -38,5 +38,4 @@ export const isValidPassword = (password) => {
 
 const isEmpty = (prop) => prop === null || prop === undefined || prop === ''
 
-export const hasEmptyEntries = (data) => Object.entries(data)
-  .reduce((acc, prop) => acc || isEmpty(prop), false)
+export const hasEmptyEntries = (data) => Object.entries(data).reduce((acc, prop) => acc || isEmpty(prop), false)

@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import HelpersList from 'components/HelpersList/HelpersList'
 import Get from 'api/get'
-import {
-  Grid,
-} from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import * as messages from 'messages/de.json'
 import styles from 'styles/styles'
-
 
 const HelpersListPage = () => {
   const classes = styles()
@@ -21,14 +18,23 @@ const HelpersListPage = () => {
   const selectClickHandler = (event) => {
     setSelectValue(event.target.value)
   }
-  const cardClickHandler = (volunteerId) => Get(`/institution/detail/${volunteerId}`)
-    .then((response) => {
-      const volunteers = blurredTagVolunteers.map((volunteer) => (volunteer.id === volunteerId ? {
-        ...volunteer, name: response.name, email: response.email, primaryPhoneNumber: response.primaryPhoneNumber, blur: { padding: 10 },
-      } : volunteer))
-      setTagVolunteers(volunteers)
-    })
-    .catch((e) => new Error(e))
+  const cardClickHandler = (volunteerId) =>
+    Get(`/institution/detail/${volunteerId}`)
+      .then((response) => {
+        const volunteers = blurredTagVolunteers.map((volunteer) =>
+          volunteer.id === volunteerId
+            ? {
+                ...volunteer,
+                name: response.name,
+                email: response.email,
+                primaryPhoneNumber: response.primaryPhoneNumber,
+                blur: { padding: 10 },
+              }
+            : volunteer,
+        )
+        setTagVolunteers(volunteers)
+      })
+      .catch((e) => new Error(e))
 
   useEffect(() => {
     if (window.localStorage.getItem('access-token')) {
@@ -51,7 +57,8 @@ const HelpersListPage = () => {
           let comparison = 0
           if (tagA > tagB) {
             comparison = 1
-          } if (tagA < tagB) comparison = -1
+          }
+          if (tagA < tagB) comparison = -1
           return comparison
         })
         setTags(sorted)
@@ -80,7 +87,8 @@ const HelpersListPage = () => {
           },
         }))
         return volunteers
-      }).then((volunteers) => {
+      })
+      .then((volunteers) => {
         setTagVolunteers(volunteers)
         setBlurredTagVolunteers(volunteers)
       })
@@ -89,21 +97,23 @@ const HelpersListPage = () => {
 
   return (
     <Grid container justify="center" className={classes.helperListContainer}>
-      {auth
-         && vetted && tags && (
-           <Grid item>
-             <HelpersList tagVolunteers={tagVolunteers} tags={tags} cardClickHandler={cardClickHandler} selectClickHandler={selectClickHandler} selectValue={selectValue} />
-           </Grid>
+      {auth && vetted && tags && (
+        <Grid item>
+          <HelpersList
+            tagVolunteers={tagVolunteers}
+            tags={tags}
+            cardClickHandler={cardClickHandler}
+            selectClickHandler={selectClickHandler}
+            selectValue={selectValue}
+          />
+        </Grid>
       )}
-      {auth
-         && !vetted && (
-         <Grid item className={classes.helperListPaper}>
-           {messages['helperslistpage.notVetted']}
-         </Grid>
+      {auth && !vetted && (
+        <Grid item className={classes.helperListPaper}>
+          {messages['helperslistpage.notVetted']}
+        </Grid>
       )}
-
     </Grid>
-
   )
 }
 

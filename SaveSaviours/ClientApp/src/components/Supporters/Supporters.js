@@ -13,11 +13,7 @@ const Supporters = () => {
       </Typography>
       <Grid container>
         <Grid item>
-          <img
-            src={supporterImage}
-            alt="logo"
-            className={classes.landingSupporterImage}
-          />
+          <img src={supporterImage} alt="logo" className={classes.landingSupporterImage} />
         </Grid>
       </Grid>
     </>

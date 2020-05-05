@@ -1,7 +1,5 @@
 import React from 'react'
-import {
-  Paper, Typography, Checkbox,
-} from '@material-ui/core'
+import { Paper, Typography, Checkbox } from '@material-ui/core'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -10,7 +8,6 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import * as messages from 'messages/de.json'
 import styles from 'styles/styles'
-
 
 const Vetting = ({ vetted, setVetted, unvettetInstitutions }) => {
   const classes = styles()
@@ -39,27 +36,28 @@ const Vetting = ({ vetted, setVetted, unvettetInstitutions }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {unvettetInstitutions && unvettetInstitutions.map((institution) => (
-              vetted[institution.email]
-                && (
-                <TableRow key={institution.email}>
-                  <TableCell>{institution.name}</TableCell>
-                  <TableCell>{institution.contactName}</TableCell>
-                  <TableCell>{institution.email}</TableCell>
-                  <TableCell>{institution.primaryPhoneNumber}</TableCell>
-                  <TableCell>{institution.zipCode}</TableCell>
-                  {/* <TableCell>{institution.timestamp}</TableCell> */}
-                  <TableCell className={classes.landingText}>
-                    <Checkbox
-                      checked={vetted[institution.email].verified}
-                      indeterminate={vetted[institution.email].indeterminate}
-                      onChange={(event) => handleCheckbox(event)}
-                      name={institution.email}
-                    />
-                  </TableCell>
-                </TableRow>
-                )
-            ))}
+            {unvettetInstitutions &&
+              unvettetInstitutions.map(
+                (institution) =>
+                  vetted[institution.email] && (
+                    <TableRow key={institution.email}>
+                      <TableCell>{institution.name}</TableCell>
+                      <TableCell>{institution.contactName}</TableCell>
+                      <TableCell>{institution.email}</TableCell>
+                      <TableCell>{institution.primaryPhoneNumber}</TableCell>
+                      <TableCell>{institution.zipCode}</TableCell>
+                      {/* <TableCell>{institution.timestamp}</TableCell> */}
+                      <TableCell className={classes.landingText}>
+                        <Checkbox
+                          checked={vetted[institution.email].verified}
+                          indeterminate={vetted[institution.email].indeterminate}
+                          onChange={(event) => handleCheckbox(event)}
+                          name={institution.email}
+                        />
+                      </TableCell>
+                    </TableRow>
+                  ),
+              )}
           </TableBody>
         </Table>
       </TableContainer>

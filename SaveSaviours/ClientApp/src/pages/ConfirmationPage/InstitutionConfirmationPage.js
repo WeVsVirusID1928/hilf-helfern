@@ -3,7 +3,6 @@ import { Grid } from '@material-ui/core'
 import Confirmation from 'components/Confirmation/Confirmation'
 import * as messages from 'messages/de.json'
 
-
 const InstitutionConfirmationPage = () => (
   <Grid container>
     <Grid item>

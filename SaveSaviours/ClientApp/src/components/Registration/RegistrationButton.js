@@ -2,10 +2,7 @@ import React from 'react'
 import { Button } from '@material-ui/core'
 import styles from 'styles/styles'
 
-const RegistrationButton = ({
-  handleRegistration,
-  messageRegistrationButton,
-}) => {
+const RegistrationButton = ({ handleRegistration, messageRegistrationButton }) => {
   const classes = styles()
   return (
     <Button

@@ -260,5 +260,4 @@ umfasst praktisch jeden Umgang mit Daten, sei es das Erheben, das Auswerten, das
 das Übermitteln oder das Löschen. 
 * Begrifflichkeiten: Personenbezogene Daten, Verantwortlicher, Verarbeitung.`
 
-
-export default Datasecurity;
+export default Datasecurity

@@ -3,15 +3,7 @@ import { TextField, Typography } from '@material-ui/core'
 import styles from 'styles/styles'
 import * as messages from 'messages/de.json'
 
-const UpdateProfile = ({
-  name,
-  setName,
-  phone,
-  setPhone,
-  zip,
-  setZip,
-  error,
-}) => {
+const UpdateProfile = ({ name, setName, phone, setPhone, zip, setZip, error }) => {
   const classes = styles()
 
   return (

@@ -1,7 +1,5 @@
 import React from 'react'
-import {
-  Paper, Typography, List, ListItem,
-} from '@material-ui/core'
+import { Paper, Typography, List, ListItem } from '@material-ui/core'
 import styles from 'styles/styles'
 import * as messages from 'messages/de.json'
 
@@ -13,18 +11,12 @@ const Welcome = () => {
       <Typography variant="h1" className={classes.landingHeader}>
         {messages['landingpage.explainerHeader']}
       </Typography>
-      <Typography className={classes.landingText}>
-        {messages['landingpage.explainerBody']}
-      </Typography>
+      <Typography className={classes.landingText}>{messages['landingpage.explainerBody']}</Typography>
       <Typography variant="h3" component="h2" className={classes.landingHeader}>
         {messages['landingpage.helptextTitle']}
       </Typography>
-      <Typography className={classes.landingText}>
-        {messages['landingpage.helptextBody1']}
-      </Typography>
-      <Typography className={classes.landingText}>
-        {messages['landingpage.helptextBody2']}
-      </Typography>
+      <Typography className={classes.landingText}>{messages['landingpage.helptextBody1']}</Typography>
+      <Typography className={classes.landingText}>{messages['landingpage.helptextBody2']}</Typography>
       <List dense>
         {messages['landingpage.helptextTasks'].map((task) => (
           <ListItem key={task} className={classes.landingText}>

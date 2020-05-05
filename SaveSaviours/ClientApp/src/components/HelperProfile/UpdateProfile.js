@@ -1,21 +1,9 @@
 import React from 'react'
-import {
-  TextField, Typography, FormControlLabel, FormGroup, Checkbox,
-} from '@material-ui/core'
+import { TextField, Typography, FormControlLabel, FormGroup, Checkbox } from '@material-ui/core'
 import styles from 'styles/styles'
 import * as messages from 'messages/de.json'
 
-const UpdateProfile = ({
-  name,
-  setName,
-  error,
-  phone,
-  setPhone,
-  zip,
-  setZip,
-  isActive,
-  setIsActive,
-}) => {
+const UpdateProfile = ({ name, setName, error, phone, setPhone, zip, setZip, isActive, setIsActive }) => {
   const classes = styles()
   const handleCheckbox = (event) => {
     setIsActive(event.target.checked)
@@ -57,14 +45,7 @@ const UpdateProfile = ({
       <FormGroup>
         <FormControlLabel
           label={messages['helperProfile.activeCheckbox']}
-          control={(
-            <Checkbox
-              required
-              checked={isActive}
-              onChange={(event) => handleCheckbox(event)}
-              name="isActive"
-            />
-            )}
+          control={<Checkbox required checked={isActive} onChange={(event) => handleCheckbox(event)} name="isActive" />}
         />
       </FormGroup>
     </>

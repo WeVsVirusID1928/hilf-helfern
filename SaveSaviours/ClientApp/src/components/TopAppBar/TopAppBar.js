@@ -61,20 +61,12 @@ export default function TopAppBar() {
     window.location = '/signin'
   }
   return (
-    <AppBar
-      position="fixed"
-      color={color}
-      elevation={0}
-      className={scrollStyle}
-    >
+    <AppBar position="fixed" color={color} elevation={0} className={scrollStyle}>
       <Toolbar>
         <div className={classes.wrapperWrapper}>
           <div className={classes.wrapper}>
             <span onClick={() => handleLogOut()}>
-              <IconButton
-                className={classes.icon}
-                color="inherit"
-              >
+              <IconButton className={classes.icon} color="inherit">
                 <AccountCircle fontSize="large" />
               </IconButton>
             </span>

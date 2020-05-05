@@ -44,13 +44,7 @@ export const theme = createMuiTheme({
     borderRadius: 8,
   },
   typography: {
-    fontFamily: [
-      '"Helvetica Neue"',
-      'sans-serif',
-      '"Open Sans"',
-      'Helvetica',
-      'Roboto',
-    ],
+    fontFamily: ['"Helvetica Neue"', 'sans-serif', '"Open Sans"', 'Helvetica', 'Roboto'],
     fontSize: 16,
     h1: {
       fontSize: '4rem',
@@ -71,6 +65,5 @@ export const theme = createMuiTheme({
       },
     },
   },
-
 })
 export default theme

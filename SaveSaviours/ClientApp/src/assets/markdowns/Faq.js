@@ -1,4 +1,3 @@
-
 const Faq = `# FAQ
 ### Welchen Zweck hat ***Voluntero***?
 ***Voluntero*** ist für den Notfall gedacht - wie Covid-19. Wenn die medizinischen und sozialen Einrichtungen unter der Last zusammenzubrechen drohen.
@@ -40,6 +39,5 @@ um Christoph Göller von Coolar UG zusammengefunden haben. Die technische Entwic
 Mehr zum Hackathon unter wirvsvirushackathon.org und per Twitter unter @wirvsvirushack.
 
 `
-
 
 export default Faq

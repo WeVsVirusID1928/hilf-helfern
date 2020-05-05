@@ -9,11 +9,7 @@ const ActionButton = () => {
     window.location = '/registration'
   }
   return (
-    <Button
-      variant="outlined"
-      className={classes.landingButton}
-      onClick={() => onClick()}
-    >
+    <Button variant="outlined" className={classes.landingButton} onClick={() => onClick()}>
       {messages['landingpage.callToAction']}
     </Button>
   )

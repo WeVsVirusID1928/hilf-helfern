@@ -1,27 +1,17 @@
 import React from 'react'
-import {
-  FormGroup,
-  Typography,
-  Grid,
-} from '@material-ui/core'
+import { FormGroup, Typography, Grid } from '@material-ui/core'
 import styles from 'styles/styles'
 import TextField from '@material-ui/core/TextField'
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete'
 
 const filter = createFilterOptions()
 
-const RegistrationExperience = ({
-  setChecked, tags, messageSubtitle,
-}) => {
+const RegistrationExperience = ({ setChecked, tags, messageSubtitle }) => {
   const classes = styles()
 
   return (
     <FormGroup>
-      <Typography
-        variant="subtitle2"
-        component="h2"
-        className={classes.registrationTaskText}
-      >
+      <Typography variant="subtitle2" component="h2" className={classes.registrationTaskText}>
         {messageSubtitle}
       </Typography>
       <Grid container />
@@ -47,9 +37,7 @@ const RegistrationExperience = ({
         filterOptions={(options, params) => {
           const filtered = filter(options, params)
           if (params.inputValue !== '') {
-            filtered.push(
-              params.inputValue,
-            )
+            filtered.push(params.inputValue)
           }
           return filtered
         }}
@@ -65,18 +53,12 @@ const RegistrationExperience = ({
         }}
         renderOption={(option, { inputValue }) => (
           <>
-            {!inputValue
-            && (
-            <>
-              {option}
-            </>
-            )}
-            {inputValue
-            && (
-            <>
-              <span className={classes.registrationExperienceAddText}>Hinzufügen:</span>
-                { option }
-            </>
+            {!inputValue && <>{option}</>}
+            {inputValue && (
+              <>
+                <span className={classes.registrationExperienceAddText}>Hinzufügen:</span>
+                {option}
+              </>
             )}
           </>
         )}
@@ -91,7 +73,6 @@ const RegistrationExperience = ({
         )}
       />
     </FormGroup>
-
   )
 }
 

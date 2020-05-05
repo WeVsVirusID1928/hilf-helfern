@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Vetting from 'components/Vetting/Vetting'
-import {
-  Grid,
-} from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 
 import * as messages from 'messages/de.json'
 import RegistrationButton from 'components/Registration/RegistrationButton'
@@ -10,7 +8,7 @@ import Get from 'api/get'
 import Post from 'api/post'
 
 const VettingPage = () => {
-//  const classes = styles()
+  //  const classes = styles()
   const [auth, setAuth] = useState(null)
   useEffect(() => {
     if (window.localStorage.getItem('access-token')) {
@@ -27,9 +25,10 @@ const VettingPage = () => {
 
   const [unvettetInstitutions, setUnvettetInstitutions] = useState()
   // get list of indeterminate institution registrations from backend
-  const fetchVetting = () => Get('/vetting')
-    .then((payload) => setUnvettetInstitutions(payload))
-    .catch((e) => console.log(e))
+  const fetchVetting = () =>
+    Get('/vetting')
+      .then((payload) => setUnvettetInstitutions(payload))
+      .catch((e) => console.log(e))
 
   useEffect(() => {
     setVetted(() => {
@@ -43,7 +42,7 @@ const VettingPage = () => {
       }
     })
   }, [unvettetInstitutions])
-  
+
   useEffect(() => {
     fetchVetting()
   }, [])
@@ -74,14 +73,13 @@ const VettingPage = () => {
       })
       if (rejected || accepted) {
         if (rejected) {
-          return Promise.all(rejectedPayload.map((id) => Post('/vetting/reject', id)))
-            .then(() => {
-              if (accepted) {
-                Promise.all(acceptedPayload.map((id) => Post('/vetting/verify', id)))
-                  .then(() => fetchVetting())
-                  .catch((e) => console.log(e))
-              }
-            })
+          return Promise.all(rejectedPayload.map((id) => Post('/vetting/reject', id))).then(() => {
+            if (accepted) {
+              Promise.all(acceptedPayload.map((id) => Post('/vetting/verify', id)))
+                .then(() => fetchVetting())
+                .catch((e) => console.log(e))
+            }
+          })
         }
         if (accepted) {
           return Promise.all(acceptedPayload.map((id) => Post('/vetting/verify', id)))
@@ -93,28 +91,24 @@ const VettingPage = () => {
   }
   return (
     <Grid container justify="center">
-      {auth
-        ? (
-          <>
-            <Grid item>
-              {unvettetInstitutions && vetted
-                && (
-                <Vetting
-                  vetted={vetted}
-                  setVetted={setVetted}
-                  unvettetInstitutions={unvettetInstitutions}
-                />
-                )}
-
-            </Grid>
-            <Grid>
-              <RegistrationButton messageRegistrationButton={messages['vettingpage.vettingButton']} handleRegistration={handleButtonClick} />
-            </Grid>
-          </>
-        )
-        : <div />}
+      {auth ? (
+        <>
+          <Grid item>
+            {unvettetInstitutions && vetted && (
+              <Vetting vetted={vetted} setVetted={setVetted} unvettetInstitutions={unvettetInstitutions} />
+            )}
+          </Grid>
+          <Grid>
+            <RegistrationButton
+              messageRegistrationButton={messages['vettingpage.vettingButton']}
+              handleRegistration={handleButtonClick}
+            />
+          </Grid>
+        </>
+      ) : (
+        <div />
+      )}
     </Grid>
-
   )
 }
 

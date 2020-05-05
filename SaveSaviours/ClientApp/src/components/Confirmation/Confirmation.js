@@ -6,16 +6,10 @@ const Confirmation = ({ headertextTitle, headertextBody }) => {
   const classes = styles()
   return (
     <Paper square elevation={2} className={classes.landingPaper}>
-      <Typography
-        variant="h2"
-        component="h1"
-        className={classes.registrationHeader}
-      >
+      <Typography variant="h2" component="h1" className={classes.registrationHeader}>
         {headertextTitle}
       </Typography>
-      <Typography className={classes.registrationHeader}>
-        {headertextBody}
-      </Typography>
+      <Typography className={classes.registrationHeader}>{headertextBody}</Typography>
     </Paper>
   )
 }

@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import { Grid, Divider } from '@material-ui/core'
 import styles from 'styles/styles'
-import {
-  isValidEmail, isValidPhoneNumber, isValidZip, isValidPassword,
-} from 'services'
+import { isValidEmail, isValidPhoneNumber, isValidZip, isValidPassword } from 'services'
 import RegistrationTextField from 'components/Registration/RegistrationTextField'
 import RegistrationCallToAction from 'components/Registration/RegistrationCallToAction'
 import RegistrationExperience from 'components/Registration/RegistrationExperience'
@@ -44,7 +42,9 @@ const RegistrationPage = () => {
   })
   const isValidForm = () => {
     setError({
-      ...error, phone: false, zip: false,
+      ...error,
+      phone: false,
+      zip: false,
     })
     if (!isValidEmail(email)) {
       setError({ ...error, email: true })
@@ -82,7 +82,8 @@ const RegistrationPage = () => {
         .then((response) => {
           if (response.ok) {
             return response.text()
-          } throw new Error('something went wrong durring registration from backend')
+          }
+          throw new Error('something went wrong durring registration from backend')
         })
         .then((response) => {
           window.localStorage.setItem('access-token', response)
