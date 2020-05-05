@@ -85,7 +85,7 @@ const HelpersListPage = () => {
         setBlurredTagVolunteers(volunteers)
       })
       .catch((e) => new Error(e))
-  }, [selectValue])
+  }, [selectValue, tags])
 
   return (
     <Grid container justify="center" className={classes.helperListContainer}>

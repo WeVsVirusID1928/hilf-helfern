@@ -31,8 +31,7 @@ const VettingPage = () => {
     .then((payload) => setUnvettetInstitutions(payload))
     .catch((e) => console.log(e))
 
-
-  const clearVetted = () => {
+  useEffect(() => {
     setVetted(() => {
       let institutionEmail = {}
       if (unvettetInstitutions) {
@@ -43,10 +42,8 @@ const VettingPage = () => {
         return institutionEmail
       }
     })
-  }
-  useEffect(() => {
-    clearVetted()
   }, [unvettetInstitutions])
+  
   useEffect(() => {
     fetchVetting()
   }, [])
