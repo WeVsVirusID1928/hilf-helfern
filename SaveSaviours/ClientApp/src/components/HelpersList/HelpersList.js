@@ -82,7 +82,7 @@ const HelpersList = ({
                     {messages['helperslistpage.experience']}
                   </Typography>
                   {tagVolunteer.tags.map((tagId) => tags.map(({ value, label }) => {
-                    if (value === tagId) return <Typography key={value}>{label}</Typography>
+                    return (value === tagId) ? <Typography key={value}>{label}</Typography> : ''
                   }))}
                 </Grid>
 

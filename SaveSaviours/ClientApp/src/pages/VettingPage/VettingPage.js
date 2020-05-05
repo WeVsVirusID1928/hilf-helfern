@@ -38,6 +38,7 @@ const VettingPage = () => {
       if (unvettetInstitutions) {
         unvettetInstitutions.map((institution) => {
           institutionEmail = { ...institutionEmail, [institution.email]: { verified: false, indeterminate: true } }
+          return institutionEmail
         })
         return institutionEmail
       }
@@ -64,12 +65,15 @@ const VettingPage = () => {
         if (indeterminate === false && verified === true) {
           accepted.push(email)
         }
+        return verified ? accepted : rejected
       })
       rejected.map((email) => {
         unvettetInstitutions.map((value) => (value.email === email ? rejectedPayload.push(value.id) : null))
+        return acceptedPayload
       })
       accepted.map((email) => {
         unvettetInstitutions.map((value) => (value.email === email ? acceptedPayload.push(value.id) : null))
+        return acceptedPayload
       })
       if (rejected || accepted) {
         if (rejected) {

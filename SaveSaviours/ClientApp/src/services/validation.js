@@ -29,6 +29,7 @@ export const isValidPassword = (password) => {
       if (letters.indexOf(letter) === -1) {
         letters.push(letter)
       }
+      return letters;
     })
     return password.length > 5 && letters.length > 2
   }
