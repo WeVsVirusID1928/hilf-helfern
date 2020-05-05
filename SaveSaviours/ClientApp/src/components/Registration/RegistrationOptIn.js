@@ -1,10 +1,8 @@
 import React from 'react'
 import { FormControlLabel, FormGroup, Checkbox } from '@material-ui/core'
-import styles from 'styles/styles'
 import * as messages from 'messages/de.json'
 
 const RegistrationOptIn = ({ datasecurity, setDatasecurity }) => {
-  const classes = styles()
 
   const handleCheckbox = (event) => {
     setDatasecurity(event.target.checked)

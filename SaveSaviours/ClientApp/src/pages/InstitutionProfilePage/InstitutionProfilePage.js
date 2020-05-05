@@ -9,9 +9,7 @@ import Header from 'components/InstitutionProfile/Header'
 import DeleteUser from 'components/InstitutionProfile/DeleteUser'
 import UpdateProfile from 'components/InstitutionProfile/UpdateProfile'
 import Post from 'api/post'
-import {
-  isValidEmail, isValidPhoneNumber, isValidZip,
-} from 'services'
+import { isValidPhoneNumber, isValidZip } from 'services'
 
 import UpdateButton from 'components/Registration/RegistrationButton'
 
@@ -20,14 +18,14 @@ const InstitutionProfilePage = () => {
   const classes = styles()
 
   const [auth, setAuth] = useState(false)
-  const [user, setUser] = useState(false)
+  const [setUser] = useState(false)
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [contactName, setContactName] = useState('')
   const [phone, setPhone] = useState('')
   const [zip, setZip] = useState('')
   const [vetted, setVetted] = useState(false)
-  const [deleteProfile, setDeleteProfile] = useState(false)
+  const [deleteProfile] = useState(false)
 
   useEffect(() => {
     if (window.localStorage.getItem('access-token')) {

@@ -1,30 +1,18 @@
-import React, { useState } from 'react'
-import {
-  TextField, Typography, FormControlLabel, FormGroup, Checkbox,
-} from '@material-ui/core'
+import React from 'react'
+import { TextField, Typography } from '@material-ui/core'
 import styles from 'styles/styles'
 import * as messages from 'messages/de.json'
-import InputAdornment from '@material-ui/core/InputAdornment'
-import VisibilityIcon from '@material-ui/icons/Visibility'
-import VisibilityOffIcon from '@material-ui/icons/VisibilityOff'
 
 const UpdateProfile = ({
   name,
   setName,
-  contactName,
-  setContactName,
   phone,
   setPhone,
   zip,
   setZip,
   error,
-  vetted,
 }) => {
   const classes = styles()
-  const [transparentPassword, setTransparentPassword] = useState('password')
-  const handleClick = () => {
-    transparentPassword === 'password' ? setTransparentPassword('text') : setTransparentPassword('password')
-  }
 
   return (
     <>

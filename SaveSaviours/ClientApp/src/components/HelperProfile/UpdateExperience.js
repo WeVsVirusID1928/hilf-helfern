@@ -1,15 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {
   FormGroup,
-  Checkbox,
   Typography,
   Grid,
 } from '@material-ui/core'
 import styles from 'styles/styles'
 import TextField from '@material-ui/core/TextField'
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete'
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank'
-import CheckBoxIcon from '@material-ui/icons/CheckBox'
 
 const filter = createFilterOptions()
 

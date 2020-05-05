@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Grid, Divider } from '@material-ui/core'
 import styles from 'styles/styles'
 import {

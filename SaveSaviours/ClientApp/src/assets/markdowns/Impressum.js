@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Impressum = `# Impressum
 ## Diensteanbieter
 Christoph Göller und Tom Lawson

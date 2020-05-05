@@ -10,9 +10,7 @@ import DeleteUser from 'components/HelperProfile/DeleteUser'
 import UpdateProfile from 'components/HelperProfile/UpdateProfile'
 import UpdateExperience from 'components/HelperProfile/UpdateExperience'
 import Post from 'api/post'
-import {
-  isValidEmail, isValidPhoneNumber, isValidZip,
-} from 'services'
+import { isValidPhoneNumber, isValidZip } from 'services'
 
 import UpdateButton from 'components/Registration/RegistrationButton'
 
@@ -21,16 +19,16 @@ const HelperProfilePage = () => {
   const classes = styles()
 
   const [auth, setAuth] = useState(false)
-  const [user, setUser] = useState(false)
+  const [setUser] = useState(false)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [zip, setZip] = useState('')
   const [isActive, setIsActive] = useState(false)
   const [checked, setChecked] = useState(false)
-  const [deleteProfile, setDeleteProfile] = useState(false)
+  const [deleteProfile] = useState(false)
 
-  const [tags, setTags] = useState([
+  const [tags] = useState([
     messages['registrationpage.select'][0].text,
     messages['registrationpage.select'][1].text,
     messages['registrationpage.select'][2].text,

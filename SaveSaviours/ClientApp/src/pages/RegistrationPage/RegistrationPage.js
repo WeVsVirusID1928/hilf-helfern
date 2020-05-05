@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Grid, Divider } from '@material-ui/core'
 import styles from 'styles/styles'
 import {
@@ -23,7 +23,7 @@ const RegistrationPage = () => {
   const [checked, setChecked] = useState([])
   const [datasecurity, setDatasecurity] = useState(false)
 
-  const [tags, setTags] = useState([
+  const [tags] = useState([
     messages['registrationpage.select'][0].text,
     messages['registrationpage.select'][1].text,
     messages['registrationpage.select'][2].text,

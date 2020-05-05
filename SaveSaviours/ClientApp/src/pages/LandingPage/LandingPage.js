@@ -4,7 +4,6 @@ import styles from 'styles/styles'
 import Welcome from 'components/Welcome/Welcome'
 import ActionButton from 'components/ActionButton/ActionButton'
 import Supporters from 'components/Supporters/Supporters'
-import Get from 'api/get'
 
 const LandingPage = () => {
   const classes = styles()

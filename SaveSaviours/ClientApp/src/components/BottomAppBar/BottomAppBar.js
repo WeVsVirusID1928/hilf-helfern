@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
 }))
 export default function BottomAppBar() {
   const classes = useStyles()
-  const [color, setColor] = useState('transparent')
-  const [scrollStyle, setScrollStyle] = useState(`${classes.appBar}`)
+  const [color] = useState('transparent')
+  const [scrollStyle] = useState(`${classes.appBar}`)
   return (
     <AppBar
       position="static"
