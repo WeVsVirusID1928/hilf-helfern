@@ -19,7 +19,6 @@ const HelperProfilePage = () => {
   const classes = styles()
 
   const [auth, setAuth] = useState(false)
-  const [setUser] = useState(false)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
@@ -47,7 +46,6 @@ const HelperProfilePage = () => {
         .then((response) => {
           if (response.roles.volunteer) {
             setAuth(true)
-            setUser(response)
             setEmail(response.email)
             setName(response.roles.volunteer.name)
             setPhone(response.roles.volunteer.primaryPhoneNumber)

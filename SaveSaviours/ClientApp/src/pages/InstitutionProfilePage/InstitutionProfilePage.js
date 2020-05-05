@@ -18,7 +18,6 @@ const InstitutionProfilePage = () => {
   const classes = styles()
 
   const [auth, setAuth] = useState(false)
-  const [setUser] = useState(false)
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [contactName, setContactName] = useState('')
@@ -33,7 +32,6 @@ const InstitutionProfilePage = () => {
         .then((response) => {
           if (response.roles.institution) {
             setAuth(true)
-            setUser(response)
             setEmail(response.email)
             setName(response.roles.institution.name)
             setContactName(response.roles.institution.contactName)
