@@ -53,8 +53,8 @@ const App = () => {
         <div className={classes.offset} />
         <Container maxWidth="lg" className={classes.appContainer}>
           <Switch>
-            {routes.map(({ path, component }) => (
-              <Route exact path={path} key={path} component={component} />
+            {routes.map(({ path, component }, index) => (
+              <Route exact path={path} key={index} component={component} />
             ))}
           </Switch>
         </Container>
